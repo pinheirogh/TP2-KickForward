@@ -10,14 +10,14 @@ object Demo {
     val donothing = tt
   }
 
-  def read_file(path_to_file: String, fn: Unit): Unit ={
+  def read_file(path_to_file: String, fn: (String) => String): (String)={
     val data = Source.fromFile(path_to_file).getLines.mkString
-    filter_chars(data, no_op(null))
+    normalize(data)
   }
-
-  def filter_chars(str_data: String, fn: Unit): Unit ={
-    val pattern = str_data.replaceAll("\\W", "")
-    normalize(pattern, no_op(null))
+  
+  def filter_chars(str_data: String, fn: (String) => String): (String)={
+      val pattern = str_data.replaceAll("\\W", "")
+      scan(pattern)
   }
 
   def normalize(str_data: String, unit: Unit): Unit ={
