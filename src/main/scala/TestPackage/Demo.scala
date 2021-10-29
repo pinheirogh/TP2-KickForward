@@ -38,7 +38,7 @@ object Demo {
 
   def remove_stop_words(tt: ListBuffer[String], fn: Unit): Unit ={
     for (word <- tt) println(word)
-    frequencies(tt, fn)
+    //frequencies(tt, fn)
   }
 
   /*
