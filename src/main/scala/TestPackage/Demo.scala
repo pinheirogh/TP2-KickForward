@@ -1,9 +1,12 @@
-import scala.io.Source, scala.collection.mutable.ListBuffer
+import scala.io.Source
+import scala.collection.mutable.ListBuffer
+import scala.collection.immutable.ListMap
 
 object Demo {
   def main(args: Array[String]): Unit ={
     var lines = scala.io.Source.fromFile("teste.txt").mkString
-    normalize(lines, no_op(null))
+    sort(ListMap("Linha" -> 4, "teste" -> 1, "alguma" -> 3, "coisa" -> 2), no_op(null))
+    // normalize(lines, no_op(null))
   }
 
   def no_op(tt: Null): Unit = {
@@ -34,6 +37,23 @@ object Demo {
 
   def remove_stop_words(tt: ListBuffer[String], unit: Unit): Unit ={
     for (word <- tt) println(word)
+    // frequencies(tt, no_op(null))
+  }
+
+  def frequencies(tt: ListBuffer[String], unit: Unit): Unit = {
+    var wf = new ListMap[String, Int]()
+    sort(wf, no_op(null))
+  }
+
+  def sort(wf: ListMap[String, Int], unit: Unit): Unit = {
+    val a = 0
+    print_text(ListMap(wf.toSeq.sortWith(_._2 > _._2):_*), no_op(null))
+  }
+
+  def print_text(wf: ListMap[String, Int], unit: Unit): Unit = {
+    wf.foreach {  
+      case (key, value) => println (key + " - " + value)         
+    }
   }
 
 }
