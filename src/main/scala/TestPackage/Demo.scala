@@ -38,8 +38,10 @@ object Demo {
 
   def remove_stop_words(tt: ListBuffer[String], fn: Unit): Unit ={
     for (word <- tt) println(word)
-    // frequencies(tt, fn)
+    //frequencies(tt, fn)
   }
+
+  /*
 
   def frequencies(tt: ListBuffer[String], fn: Unit): Unit = {
     var wf = new ListMap[String, Int]()
@@ -57,4 +59,24 @@ object Demo {
     }
   }
 
+  */
+
+  def frequencies(tt: ListBuffer[String], unit: (ListMap[String, Int], (ListMap[String, Int], Null => Unit) => Unit) => Unit): Unit = {
+    var wf = new ListMap[String, Int]()
+    // sort(wf, no_op(null))
+  }
+
+  def sort(wf: ListMap[String, Int], unit: (ListMap[String, Int], Null => Unit) => Unit): Unit = {
+    val a = 0
+    unit(ListMap(wf.toSeq.sortWith(_._2 > _._2):_*), no_op)
+  }
+
+  def print_text(wf: ListMap[String, Int], unit: Null => Unit): Unit = {
+    wf.foreach {  // TODO: Only the first 25 items
+      case (key, value) => println (key + " - " + value)
+    }
+
+    unit(null)
+  }
+  
 }
