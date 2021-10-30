@@ -62,7 +62,7 @@ object Demo {
     for (phrase <- tt) {
       phrase.split(" ").foreach(tempList += _)
     }
-    for (word <- phraseList) {
+    for (word <- tempList) {
       if (!isStopWord(word)) {
         wordList += word
       }
@@ -73,7 +73,6 @@ object Demo {
 
   def frequencies(tt: ListBuffer[String], fn: (ListMap[String, Int], (ListMap[String, Int], Null => Unit) => Unit) => Unit): Unit = {
     var wf = new ListMap[String, Int]()
-    // a implementar...
     fn(wf, print_text)
   }
 
