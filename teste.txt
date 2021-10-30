@@ -1,6 +1,1 @@
-Linha 1
-Linha 2
-Linha 3
-Linha 4
-
-This is a sample text to be used in the program.
+Linha 1,Linha 2,Linha 3,Linha 4
