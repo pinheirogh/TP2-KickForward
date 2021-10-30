@@ -60,23 +60,23 @@ object Demo {
     frequencies(tt, sort)
   }
 
-  def frequencies(tt: ListBuffer[String], unit: (ListMap[String, Int], (ListMap[String, Int], Null => Unit) => Unit) => Unit): Unit = {
+  def frequencies(tt: ListBuffer[String], fn: (ListMap[String, Int], (ListMap[String, Int], Null => Unit) => Unit) => Unit): Unit = {
     var wf = new ListMap[String, Int]()
     // a implementar...
 
-    unit(wf, print_text)
+    fn(wf, print_text)
   }
 
-  def sort(wf: ListMap[String, Int], unit: (ListMap[String, Int], Null => Unit) => Unit): Unit = {
-    unit(ListMap(wf.toSeq.sortWith(_._2 > _._2):_*), no_op)
+  def sort(wf: ListMap[String, Int], fn: (ListMap[String, Int], Null => Unit) => Unit): Unit = {
+    fn(ListMap(wf.toSeq.sortWith(_._2 > _._2):_*), no_op)
   }
 
-  def print_text(wf: ListMap[String, Int], unit: Null => Unit): Unit = {
+  def print_text(wf: ListMap[String, Int], fn: Null => Unit): Unit = {
     wf.take(25).foreach {
       case (key, value) => println (key + " - " + value)
     }
 
-    unit(null)
+    fn(null)
   }
 
   /*
@@ -91,7 +91,7 @@ object Demo {
     print_text(ListMap(wf.toSeq.sortWith(_._2 > _._2):_*), fn)
   }
 
-  def print_text(wf: ListMap[String, Int], unit: Unit): Unit = {
+  def print_text(wf: ListMap[String, Int], fn: Unit): Unit = {
     wf.take(25).foreach {
       case (key, value) => println (key + " - " + value)
     }
