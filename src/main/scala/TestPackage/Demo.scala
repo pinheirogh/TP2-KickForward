@@ -100,24 +100,3 @@ object Demo {
 
     fn(null)
   }
-
-  /*
-  def frequencies(tt: ListBuffer[String], fn: Unit): Unit = {
-    var wf = new ListMap[String, Int]()
-    // a implementar...
-
-    sort(wf, fn)
-  }
-
-  def sort(wf: ListMap[String, Int], fn: Unit): Unit = {
-    print_text(ListMap(wf.toSeq.sortWith(_._2 > _._2):_*), fn)
-  }
-
-  def print_text(wf: ListMap[String, Int], fn: Unit): Unit = {
-    wf.take(25).foreach {
-      case (key, value) => println (key + " - " + value)
-    }
-  }
-  */
-
-}
