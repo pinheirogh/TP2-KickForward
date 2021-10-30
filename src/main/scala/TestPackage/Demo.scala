@@ -60,25 +60,6 @@ object Demo {
     frequencies(tt, sort)
   }
 
-  /*
-  def frequencies(tt: ListBuffer[String], fn: Unit): Unit = {
-    var wf = new ListMap[String, Int]()
-    // a implementar...
-
-    sort(wf, fn)
-  }
-
-  def sort(wf: ListMap[String, Int], fn: Unit): Unit = {
-    print_text(ListMap(wf.toSeq.sortWith(_._2 > _._2):_*), fn)
-  }
-
-  def print_text(wf: ListMap[String, Int], unit: Unit): Unit = {
-    wf.take(25).foreach {
-      case (key, value) => println (key + " - " + value)
-    }
-  }
-  */
-
   def frequencies(tt: ListBuffer[String], unit: (ListMap[String, Int], (ListMap[String, Int], Null => Unit) => Unit) => Unit): Unit = {
     var wf = new ListMap[String, Int]()
     // a implementar...
@@ -97,5 +78,24 @@ object Demo {
 
     unit(null)
   }
+
+  /*
+  def frequencies(tt: ListBuffer[String], fn: Unit): Unit = {
+    var wf = new ListMap[String, Int]()
+    // a implementar...
+
+    sort(wf, fn)
+  }
+
+  def sort(wf: ListMap[String, Int], fn: Unit): Unit = {
+    print_text(ListMap(wf.toSeq.sortWith(_._2 > _._2):_*), fn)
+  }
+
+  def print_text(wf: ListMap[String, Int], unit: Unit): Unit = {
+    wf.take(25).foreach {
+      case (key, value) => println (key + " - " + value)
+    }
+  }
+  */
 
 }
