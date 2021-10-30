@@ -1,6 +1,7 @@
 import scala.io.Source
 import scala.collection.mutable.ListBuffer
 import scala.collection.immutable.ListMap
+import scala.collection.mutable.HashMap
 
 object Demo {
   def main(args: Array[String]): Unit ={
@@ -67,12 +68,24 @@ object Demo {
         wordList += word
       }
     }
-    print(wordList)
     frequencies(wordList, sort)
   }
 
   def frequencies(tt: ListBuffer[String], fn: (ListMap[String, Int], (ListMap[String, Int], Null => Unit) => Unit) => Unit): Unit = {
     var wf = new ListMap[String, Int]()
+    val table: HashMap[String, Int] = new HashMap[String, Int]()
+
+    def mapFrequency(word: String) = {
+      if (table.contains(word)) {
+        val freq = table(word) + 1
+        table += (word -> freq)
+      } else {
+        table += (word -> 1)
+      }
+    }
+    tt.foreach{(mapFrequency)}
+
+    wf = ListMap(table.toSeq.sortWith(_._2 > _._2):_*)
     fn(wf, print_text)
   }
 
