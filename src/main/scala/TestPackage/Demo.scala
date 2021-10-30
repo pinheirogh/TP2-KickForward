@@ -6,7 +6,24 @@ object Demo {
   def main(args: Array[String]): Unit ={
     var path = "teste.txt"
     //print(lines.replaceAll("/^\\w+$/", ""))
-    // sort(ListMap("Linha" -> 4, "teste" -> 1, "alguma" -> 3, "coisa" -> 2), no_op(null))
+
+    // teste para funcao sort e print_text:
+    /*
+    sort(ListMap(
+      "Linha" -> 4, "teste" -> 1, "alguma" -> 3, "coisa" -> 5,
+      "Linha1" -> 4, "teste1" -> 82, "alguma1" -> 346, "coisa1" -> 2,
+      "Linha2" -> 435, "teste2" -> 21, "alguma2" -> 92, "coisa2" -> 23,
+      "Linha3" -> 546, "teste3" -> 534, "alguma3" -> 215, "coisa3" -> 897,
+      "Linha4" -> 6, "teste4" -> 12, "alguma4" -> 3246, "coisa4" -> 9,
+      "Linha5" -> 121, "teste5" -> 2398, "alguma5" -> 45, "coisa5" -> 42,
+      "Linha6" -> 34, "teste6" -> 537, "alguma6" -> 87, "coisa6" -> 8768,
+      "Linha7" -> 12, "teste7" -> 328, "alguma7" -> 75, "coisa7" -> 87,
+      "Linha8" -> 40, "teste8" -> 2314, "alguma8" -> 2, "coisa8" -> 77,
+      "Linha9" -> 83, "teste9" -> 84, "alguma9" -> 897, "coisa9" -> 933,
+      "Linha0" -> 93, "teste0" -> 92, "alguma0" -> 62, "coisa0" -> 87
+    ), print_text)
+    */
+
     read_file(path, no_op(null))
   }
 
@@ -38,22 +55,25 @@ object Demo {
 
   def remove_stop_words(tt: ListBuffer[String], fn: Unit): Unit ={
     for (word <- tt) println(word)
-    //frequencies(tt, fn)
+    // a implementar...
+
+    frequencies(tt, sort)
   }
 
   /*
   def frequencies(tt: ListBuffer[String], fn: Unit): Unit = {
     var wf = new ListMap[String, Int]()
+    // a implementar...
+
     sort(wf, fn)
   }
 
   def sort(wf: ListMap[String, Int], fn: Unit): Unit = {
-    val a = 0
     print_text(ListMap(wf.toSeq.sortWith(_._2 > _._2):_*), fn)
   }
 
   def print_text(wf: ListMap[String, Int], unit: Unit): Unit = {
-    wf.foreach {
+    wf.take(25).foreach {
       case (key, value) => println (key + " - " + value)
     }
   }
@@ -61,16 +81,17 @@ object Demo {
 
   def frequencies(tt: ListBuffer[String], unit: (ListMap[String, Int], (ListMap[String, Int], Null => Unit) => Unit) => Unit): Unit = {
     var wf = new ListMap[String, Int]()
-    // sort(wf, no_op(null))
+    // a implementar...
+
+    unit(wf, print_text)
   }
 
   def sort(wf: ListMap[String, Int], unit: (ListMap[String, Int], Null => Unit) => Unit): Unit = {
-    val a = 0
     unit(ListMap(wf.toSeq.sortWith(_._2 > _._2):_*), no_op)
   }
 
   def print_text(wf: ListMap[String, Int], unit: Null => Unit): Unit = {
-    wf.foreach {  // TODO: Only the first 25 items
+    wf.take(25).foreach {
       case (key, value) => println (key + " - " + value)
     }
 
