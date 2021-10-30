@@ -56,20 +56,24 @@ object Demo {
   def remove_stop_words(tt: ListBuffer[String], fn: Unit): Unit ={
     val stopWordsList = Source.fromFile("stop_words.txt").getLines.mkString.split(",").map(_.trim).toList
     def isStopWord(word: String) = stopWordsList.contains(word.toLowerCase()) 
+    var tempList = ListBuffer[String]()
     var wordList = ListBuffer[String]()
 
-    for (word <- tt) {
+    for (phrase <- tt) {
+      phrase.split(" ").foreach(tempList += _)
+    }
+    for (word <- phraseList) {
       if (!isStopWord(word)) {
         wordList += word
       }
     }
+    print(wordList)
     frequencies(wordList, sort)
   }
 
   def frequencies(tt: ListBuffer[String], fn: (ListMap[String, Int], (ListMap[String, Int], Null => Unit) => Unit) => Unit): Unit = {
     var wf = new ListMap[String, Int]()
     // a implementar...
-    print(tt)
     fn(wf, print_text)
   }
 
