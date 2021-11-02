@@ -21,7 +21,7 @@ object Demo {
   }
 
   def filter_chars(str_data: String, fn: Unit): (Unit)={
-    val pattern = str_data.replaceAll("/^\\w+$/", "")
+    val pattern = str_data.replaceAll("[^A-Za-z ]", "")
     normalize(pattern, fn)
   }
 
