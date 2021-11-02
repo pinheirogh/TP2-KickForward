@@ -48,7 +48,7 @@ object Demo {
   }
 
   def scan_function(str_data: String, fn: Unit): Unit = {
-    var wordlist = str_data.split(',')
+    var wordlist = str_data.split(' ')
     var wordBufferList = ListBuffer[String]()
     for (word <- wordlist) wordBufferList += word
     remove_stop_words(wordBufferList, fn)
