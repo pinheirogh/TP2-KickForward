@@ -8,23 +8,6 @@ object Demo {
     var path = "teste.txt"
     //print(lines.replaceAll("/^\\w+$/", ""))
 
-    // teste para funcao sort e print_text:
-    /*
-    sort(ListMap(
-      "Linha" -> 4, "teste" -> 1, "alguma" -> 3, "coisa" -> 5,
-      "Linha1" -> 4, "teste1" -> 82, "alguma1" -> 346, "coisa1" -> 2,
-      "Linha2" -> 435, "teste2" -> 21, "alguma2" -> 92, "coisa2" -> 23,
-      "Linha3" -> 546, "teste3" -> 534, "alguma3" -> 215, "coisa3" -> 897,
-      "Linha4" -> 6, "teste4" -> 12, "alguma4" -> 3246, "coisa4" -> 9,
-      "Linha5" -> 121, "teste5" -> 2398, "alguma5" -> 45, "coisa5" -> 42,
-      "Linha6" -> 34, "teste6" -> 537, "alguma6" -> 87, "coisa6" -> 8768,
-      "Linha7" -> 12, "teste7" -> 328, "alguma7" -> 75, "coisa7" -> 87,
-      "Linha8" -> 40, "teste8" -> 2314, "alguma8" -> 2, "coisa8" -> 77,
-      "Linha9" -> 83, "teste9" -> 84, "alguma9" -> 897, "coisa9" -> 933,
-      "Linha0" -> 93, "teste0" -> 92, "alguma0" -> 62, "coisa0" -> 87
-    ), print_text)
-    */
-
     read_file(path, no_op(null))
   }
 
@@ -71,8 +54,7 @@ object Demo {
     frequencies(wordList, sort)
   }
 
-  def frequencies(tt: ListBuffer[String], fn: (ListMap[String, Int], (ListMap[String, Int], Null => Unit) => Unit) => Unit): Unit = {
-    var wf = new ListMap[String, Int]()
+  def frequencies(tt: ListBuffer[String], fn: (HashMap[String, Int], (ListMap[String, Int], Null => Unit) => Unit) => Unit): Unit = {
     val table: HashMap[String, Int] = new HashMap[String, Int]()
 
     def mapFrequency(word: String) = {
@@ -85,11 +67,10 @@ object Demo {
     }
     tt.foreach{(mapFrequency)}
 
-    wf = ListMap(table.toSeq.sortWith(_._2 > _._2):_*)
-    fn(wf, print_text)
+    fn(table, print_text)
   }
 
-  def sort(wf: ListMap[String, Int], fn: (ListMap[String, Int], Null => Unit) => Unit): Unit = {
+  def sort(wf: HashMap[String, Int], fn: (ListMap[String, Int], Null => Unit) => Unit): Unit = {
     fn(ListMap(wf.toSeq.sortWith(_._2 > _._2):_*), no_op)
   }
 
@@ -103,13 +84,13 @@ object Demo {
 
   /*
   def frequencies(tt: ListBuffer[String], fn: Unit): Unit = {
-    var wf = new ListMap[String, Int]()
-    // a implementar...
+    var wf = new HashMap[String, Int]()
+    // ...
 
     sort(wf, fn)
   }
 
-  def sort(wf: ListMap[String, Int], fn: Unit): Unit = {
+  def sort(wf: HashMap[String, Int], fn: Unit): Unit = {
     print_text(ListMap(wf.toSeq.sortWith(_._2 > _._2):_*), fn)
   }
 
