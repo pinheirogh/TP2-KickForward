@@ -4,7 +4,11 @@ Neste projeto, realizado em grupo, utilizamos como base o código exemplo, em Py
 
 
 Contribuintes do projeto, e integrantes do grupo 09:
+
 Gabriel Pinheiro da Conceição - 190133724
+
 Luiza de Araújo Nunes Gomes - 190112794
+
 Maria Clara Mendes Gonçalves - 190100168
+
 Pedro Henrique de Brito Agnes - 180026305
