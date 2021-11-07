@@ -1,6 +1,6 @@
 # TP2-KickForward
 
-Neste projeto, realizado em grupo, utilizamos como base o código exemplo, em Python, do estilo de progamação "Kick Forward" apresentado no livro "Exercises in Programming Style" da Crista Lopes. Dessa forma, para que todos pudessem contribuir de forma mais igualitária, dividimos as funções entre o grupo, e nos auxiliamos para a criação do código em scala, presente neste projeto com o nome "Demo.scala". Por último, devemos ressaltar que como o projeto está em Scala, nós usamos o "sbt" para compilar o código. Ainda, utilizamos um arquivo teste chamado "teste.txt" que está em inglês.
+Neste projeto, realizado em grupo, utilizamos como base o código exemplo, em Python, do estilo de progamação "Kick Forward" apresentado no livro "Exercises in Programming Style" da Crista Lopes. Dessa forma, para que todos pudessem contribuir de forma mais igualitária, dividimos as funções entre o grupo, e nos auxiliamos para a criação do código em scala, presente neste projeto com o nome "Demo.scala". Ainda, utilizamos um arquivo teste chamado "teste.txt" que está em inglês para testar o funcionamento do algoritmo. Por último, devemos ressaltar que como o projeto está em Scala, nós usamos o "sbt" para compilar o código. 
 
 
 Contribuintes do projeto, e integrantes do grupo 09:
