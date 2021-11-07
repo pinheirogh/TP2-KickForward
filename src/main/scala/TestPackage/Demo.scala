@@ -6,7 +6,6 @@ import scala.collection.mutable.HashMap
 object Demo {
   def main(args: Array[String]): Unit ={
     var path = "teste.txt"
-    //print(lines.replaceAll("/^\\w+$/", ""))
 
     read_file(path, no_op(null))
   }
@@ -81,24 +80,5 @@ object Demo {
 
     fn(null)
   }
-
-  /*
-  def frequencies(tt: ListBuffer[String], fn: Unit): Unit = {
-    var wf = new HashMap[String, Int]()
-    // ...
-
-    sort(wf, fn)
-  }
-
-  def sort(wf: HashMap[String, Int], fn: Unit): Unit = {
-    print_text(ListMap(wf.toSeq.sortWith(_._2 > _._2):_*), fn)
-  }
-
-  def print_text(wf: ListMap[String, Int], fn: Unit): Unit = {
-    wf.take(25).foreach {
-      case (key, value) => println (key + " - " + value)
-    }
-  }
-  */
 
 }
