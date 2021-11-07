@@ -3,7 +3,7 @@ import scala.collection.mutable.ListBuffer
 import scala.collection.immutable.ListMap
 import scala.collection.mutable.HashMap
 
-object Demo {
+object WordCount {
   def main(args: Array[String]): Unit ={
     var path = "teste1.txt" //The tests are "texte1.txt", "teste2.txt and "teste3.txt"
 
